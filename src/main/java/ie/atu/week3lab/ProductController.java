@@ -40,13 +40,11 @@ public class ProductController {
        return ResponseEntity.ok(products);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteProduct(@PathVariable long id) {
-        int num = (int) id;
-
-        for (int count = 0; count < products.size(); count++) {
-            if (products.get(count).getId() == num) {
-                products.remove(count);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<List> deleteProduct(@PathVariable int id) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId() == id) {
+                products.remove(id);
             }
         }
         return ResponseEntity.ok(products);
