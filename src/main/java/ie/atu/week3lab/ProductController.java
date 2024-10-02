@@ -30,9 +30,14 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public String putId(@RequestParam int id, @RequestBody Product product)
+    public ResponseEntity<List> editProduct(@PathVariable int id, @RequestBody Product product)
     {
-        return "product is being updated";
+       for(int i = 0; i< products.size(); i++){
+           if(products.get(i).getId() == id){
+               products.set(i, product);
+           }
+       }
+       return ResponseEntity.ok(products);
     }
 
     @DeleteMapping("/{id}")
