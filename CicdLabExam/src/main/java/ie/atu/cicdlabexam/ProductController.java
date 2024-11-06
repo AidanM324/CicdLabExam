@@ -17,12 +17,12 @@ public class ProductController {
     }
 
     @GetMapping("/products/{productCode}")
-    public List<Product> getProducts(@Valid @RequestBody String productCode ){return productService.getProducts();}
+    public List<Product> getProducts(@Valid @RequestBody String productCode ){return productService.getProducts(productCode);}
 
 
     @PostMapping("/products")
-    public List<Product> addProduct(@Valid @RequestBody Product product){
-        return productService.addProduct(product);
+    public List<Product> addProduct(@Valid @RequestBody Product product, String productCode){
+        return productService.addProduct(product, productCode);
     }
 
     @PutMapping("/products/{productCode}")
