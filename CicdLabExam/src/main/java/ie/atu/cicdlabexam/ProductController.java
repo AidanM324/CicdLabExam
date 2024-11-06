@@ -17,7 +17,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/{productCode}")
-    public List<Product> getProducts(@Valid @RequestBody String productCode ){return productService.getProducts();}
+    public List<Product> getProducts(@Valid @RequestBody String productCode ){return productService.getProducts(productCode);}
 
 
     @PostMapping("/products")

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ProductService {
     private List<Product> productList = new ArrayList<>();
 
-    public List<Product> getProducts(){return productList;}
+    public List<Product> getProducts(String productCode){return productList;}
 
     public List<Product> addProduct(Product product, String productCode) {
         if(productList.contains(productCode)){
