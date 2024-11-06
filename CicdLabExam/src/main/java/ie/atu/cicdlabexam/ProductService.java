@@ -20,18 +20,18 @@ public class ProductService {
         return productList;
     }
 
-    public List<Product> editProduct(Product product, int id) {
+    public List<Product> editProduct(Product product, String productCode) {
         for (int i = 0; i < productList.size(); i++) {
-            if(productList.get(i).getId() == id) {
+            if(productList.get(i).getProductCode() == productCode) {
                 productList.set(i, product);
             }
         }
     return productList;
     }
 
-    public List<Product> deleteProduct(int id){
+    public List<Product> deleteProduct(String productCode){
         for(int i = 0; i< productList.size(); i++){
-            if(productList.get(i).getId() == id){
+            if(productList.get(i).getProductCode() == productCode){
                 productList.remove(i);
             }
         }

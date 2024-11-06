@@ -13,24 +13,24 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/products:")
-    public List<Product> getProducts(){return productService.getProducts();}
+    @GetMapping("/products/{productCode}")
+    public List<Product> getProducts(@Valid @RequestBody String productCode ){return productService.getProducts();}
 
 
-    @PostMapping("/addProduct")
+    @PostMapping("/products")
     public List<Product> addProduct(@Valid @RequestBody Product product){
         return productService.addProduct(product);
     }
 
-    @PutMapping("/{id}")
-    public List<Product> editProduct(@Valid @PathVariable int id, @RequestBody Product product)
+    @PutMapping("/products/{productCode}")
+    public List<Product> editProduct(@Valid @RequestBody String productCode, @RequestBody Product product)
     {
-        return productService.editProduct(product, id);
+        return productService.editProduct(product, productCode);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public List<Product> deleteProduct(@Valid @PathVariable int id){
-        return productService.deleteProduct(id);
+    @DeleteMapping("/products/{productCode}")
+    public List<Product> deleteProduct(@Valid @RequestBody String productCode){
+        return productService.deleteProduct(productCode);
     }
 
 }
