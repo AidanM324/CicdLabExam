@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-    //@Pattern(regexp = "[PROD-XXXX]", message = "ProductCode must be in the format PROD-XXXX")
+    @Pattern(regexp = "[PROD-XXXX]", message = "ProductCode must be in the format PROD-XXXX")
     private String productCode;
     @Size(max=100, message = "must be max 100 characters")
     private String productName;
