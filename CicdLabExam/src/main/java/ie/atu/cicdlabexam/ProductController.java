@@ -6,12 +6,15 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
-import java.util.ArrayList;
 
 @RestController
 public class ProductController {
 
     private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/products/{productCode}")
     public List<Product> getProducts(@Valid @RequestBody String productCode ){return productService.getProducts();}
