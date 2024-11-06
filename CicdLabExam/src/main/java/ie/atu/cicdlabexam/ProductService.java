@@ -15,7 +15,10 @@ public class ProductService {
 
     public List<Product> getProducts(){return productList;}
 
-    public List<Product> addProduct(Product product) {
+    public List<Product> addProduct(Product product, String productCode) {
+        if(productList.contains(productCode)){
+            throw new DuplicateProductCodeException("productCode" + productCode + "already exists.");
+        }
         productList.add(product);
         return productList;
     }

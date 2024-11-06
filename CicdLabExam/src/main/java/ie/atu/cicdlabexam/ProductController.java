@@ -21,8 +21,8 @@ public class ProductController {
 
 
     @PostMapping("/products")
-    public List<Product> addProduct(@Valid @RequestBody Product product){
-        return productService.addProduct(product);
+    public List<Product> addProduct(@Valid @RequestBody Product product, String productCode){
+        return productService.addProduct(product, productCode);
     }
 
     @PutMapping("/products/{productCode}")
